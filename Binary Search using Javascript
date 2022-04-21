@@ -1,0 +1,27 @@
+//Binary Search 
+function bs(items, value){
+    var first  = 0,
+        last   = items.length - 1,
+        mid = Math.floor((last + first)/2);
+    while(items[mid] != value && first < last)
+    {
+       if (value < items[mid])
+        {
+            last = mid - 1;
+        } 
+      else if (value > items[mid])
+        {
+            first = mid + 1;
+        }
+        mid = Math.floor((last + first)/2);
+    }
+ return (items[mid] != value) ? -1 : mid;
+}
+var items = [1, 2, 3, 4, 5, 7, 8, 9,10,21,21];
+console.log("Index value:");
+console.log(bs(items, 3));   
+console.log(bs(items, 7));
+//Output:
+//Index value:
+//2
+//5
