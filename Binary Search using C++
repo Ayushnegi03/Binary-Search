@@ -1,0 +1,35 @@
+//Binary Search
+//Binary Search is a method to find the required element 
+//in a sorted array by repeatedly halving the array and searching in the half.
+#include <iostream>
+using namespace std;
+int BS(int Arr[], int P, int R, int N) {
+   if (P <= R) 
+   {
+      int mid = (P + R)/2;
+      if (Arr[mid] == N)
+         return mid ;
+      if (Arr[mid] > N)
+         return BS(Arr,P, mid-1, N);
+      if (Arr[mid] < N)
+         return BS(Arr, mid+1, R, N);
+   }
+   return -1;
+}
+int main(void) {
+   int Arr[] = {12, 4, 7, 5, 48, 10, 35, 31, 26, 14, 21};
+   int n = sizeof(Arr)/ sizeof(Arr[0]);
+   int N=7;
+   //cout << "Enter the number to search: \n";
+   //cin >> num;
+   int index = BS(Arr, 0, n-1, N);
+   if(index == -1)
+   {
+      cout<<N<<" is not found in the array";
+   }else{
+      cout<<N<<" is found at index "<< index <<" in the array";
+   }
+   return 0;
+}
+//Output-
+//7 is found at index 2 in the array
