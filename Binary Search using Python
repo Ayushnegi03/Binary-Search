@@ -16,5 +16,5 @@ if result != -1:
     print("Elements is shown in index\n" + str(result))
 else:
     print("Not Found")
-#Output
+#Output->
 #1
